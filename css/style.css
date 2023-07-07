@@ -1,0 +1,50 @@
+/* http://meyerweb.com/eric/tools/css/reset/  v2.0 | 20110126 License: none (public domain)*/
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+body {
+  line-height: 1;
+}
+
+img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+header {
+  padding: 70px 0;
+}
+header h1 {
+  font-size: 30px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  color: #BDBDBD;
+  padding: 50px 0;
+}
+footer p {
+  font-size: 14px;
+}
+footer a {
+  color: #BDBDBD;
+  text-decoration: underline;
+}/*# sourceMappingURL=style.css.map */
