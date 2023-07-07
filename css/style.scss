@@ -12,11 +12,16 @@ $container-min-height: 90vh;
 
 $color-primary: #FFFFFF;
 $color-secondary: #000000;
+$color-tertiary: #FDC935;
 
 $background-primary: #FBB03B;
 $background-secondary: #1E1E1E;
 
 $font-family-primary: 'canada-type-gibson', sans-serif;
+$font-size-title: 8vw;
+$font-size-subtitle: 4vw;
+$font-size-text: 20px;
+
 
 $border-radius: 20px;
 
@@ -35,29 +40,33 @@ h1, h2, h3, h4, p, a, li {font-family: $font-family-primary;}
 // // HEAD NAV // //
 // // // // // // //
 header{
-   height: 20vh;
-   min-height: 90px;
+   margin: auto;
+   width: $container-width-desktop;
+   @media screen and (max-width: $media-query){
+      width: $container-width-mobile;
+   }
+
+   height: 15vh;
+   min-height: 100px;
 
    display: flex;
    justify-content: space-between;
    align-items: center;
    
    background-color: red;
-
-   margin: auto;
-   width: $container-width-desktop;
-   @media screen and (max-width: $media-query){
-      width: $container-width-mobile;
+   h1{
+      span{
+         display: block;
+      }
    }
 }
 nav{
    ul{
       display: flex;
-      column-gap: 10px;
+      column-gap: 5vw;
       align-items: center;
       li{
-         font-size: 14px;
-         font-weight: 500;
+         font-size: $font-size-text;
          color: $color-secondary;
          transition: $transition-secondary;
          &:hover{
@@ -67,17 +76,108 @@ nav{
    }
 }
 #hero{
+   margin: auto;
+   width: $container-width-desktop;
+   @media screen and (max-width: $media-query){
+      width: $container-width-mobile;
+   }
+
    height: 80vh;
-   min-height: 250px; // VALEUR A MODIFIER ///////////////////////////////////////////////////////////////
+   min-height: 300px; // VALEUR A MODIFIER ///////////////////////////////////////////////////////////////
    background-color: $background-primary;
+
+   color: $color-primary;
+   h1{
+      text-transform: uppercase;
+      font-size: $font-size-title;
+      font-weight: bold;
+      line-height: 1.15;
+      letter-spacing: 2px;
+   }
+   p{
+      width: 60%;
+      font-size: $font-size-text;
+      padding: 0 0 10px 0;
+   }
+}
+// // // // // // //
+// //   section   // 
+// // // // // // //
+.section{
+   &__title{
+      font-size: $font-size-subtitle;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 50px 0;
+      span{
+         font-size: ($font-size-subtitle + 0.75vw);
+         letter-spacing: 4px;
+         display: block;
+         color: transparent;
+         -webkit-text-stroke: 1px $color-tertiary;
+         text-stroke: 1px $color-tertiary;
+      }
+   }
+   &__cont{
+      margin: auto;
+      width: $container-width-desktop;
+      @media screen and (max-width: $media-query){
+         width: $container-width-mobile;
+      }
+      height: 100vh;
+      min-height: 300px;
+   }
+   &__transition{
+   height: 40vh;
+      &-logo{
+         background-color: pink;
+      }
+      &-background{
+         background-color: red;
+      }
+   }
 }
 // // // // // // //
 // //   about  // //
 // // // // // // //
 #about{
-   height: 100vh;
-   min-height: 250px;
    background-color: $background-secondary;
+}
+.about__cont{
+   display: flex;
+   min-height: 50vh;
+   align-items: center;
+   @media screen and (max-width: $media-query){
+      flex-direction: column;
+      row-gap: 40px;
+   }
+   &-txt{
+      display: flex;
+      flex-direction: column;
+      row-gap: 15px;
+      width: 50%;
+      color: $color-primary;
+      font-size: $font-size-text;
+      @media screen and (max-width: $media-query){
+         width: auto;
+      }
+   }
+   &-img{
+      display: flex;
+      justify-content: center;
+      width: 50%;
+      @media screen and (max-width: $media-query){
+         width: auto;
+      }
+      img{
+         width: 55%;
+         border-radius: 0 30px 0 30px;
+         @media screen and (max-width: $media-query){
+            width: 90%;
+         }
+      }
+   }
 }
 
 
@@ -86,9 +186,7 @@ nav{
 // //   work   // //
 // // // // // // //
 #work{
-   height: 100vh;
-   min-height: 250px;
-   background-color: $background-primary;
+   background-color: $background-secondary;
 }
 
 
@@ -96,8 +194,6 @@ nav{
 // //   contact   //
 // // // // // // //
 #contact{
-   height: 100vh;
-   min-height: 250px;
    background-color: $background-secondary;
 }
 
