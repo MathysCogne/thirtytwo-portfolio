@@ -11,7 +11,7 @@ $container-max-width: 1150px;
 $container-min-height: 90vh;
 
 $color-primary: #FFFFFF;
-// $color-secondary: #BDBDBD;
+$color-secondary: #000000;
 
 $background-primary: #FBB03B;
 $background-secondary: #1E1E1E;
@@ -21,33 +21,91 @@ $font-family-primary: 'canada-type-gibson', sans-serif;
 $border-radius: 20px;
 
 $transition-primary: all 0.3s ease-in-out;
-$transition-secondary: all 0.1s ease-in-out;
+$transition-secondary: all 0.2s ease-in-out;
 
 $shadow-primary: 0 0 10px rgba(0, 0, 0, 0.1);
 
-$media-query: 900px;
+$media-query: 750px;
 // // // // // // //
 img{object-fit: cover;}
-a{text-decoration: none; color: $color-primary;}
+a{text-decoration: none; color: inherit;}
 ol,ul{list-style:none}
+h1, h2, h3, h4, p, a, li {font-family: $font-family-primary;}
 // // // // // // //
-
-
-
-
-
+// // HEAD NAV // //
+// // // // // // //
 header{
-   padding: 70px 0;
-   h1{
-      font-size: 30px;
-      text-align: center;
-      text-transform: uppercase;
+   height: 20vh;
+   min-height: 90px;
+
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   
+   background-color: red;
+
+   margin: auto;
+   width: $container-width-desktop;
+   @media screen and (max-width: $media-query){
+      width: $container-width-mobile;
    }
+}
+nav{
+   ul{
+      display: flex;
+      column-gap: 10px;
+      align-items: center;
+      li{
+         font-size: 14px;
+         font-weight: 500;
+         color: $color-secondary;
+         transition: $transition-secondary;
+         &:hover{
+            color: $color-primary;
+         }
+      }
+   }
+}
+#hero{
+   height: 80vh;
+   min-height: 250px; // VALEUR A MODIFIER ///////////////////////////////////////////////////////////////
+   background-color: $background-primary;
+}
+// // // // // // //
+// //   about  // //
+// // // // // // //
+#about{
+   height: 100vh;
+   min-height: 250px;
+   background-color: $background-secondary;
 }
 
 
 
+// // // // // // //
+// //   work   // //
+// // // // // // //
+#work{
+   height: 100vh;
+   min-height: 250px;
+   background-color: $background-primary;
+}
 
+
+// // // // // // //
+// //   contact   //
+// // // // // // //
+#contact{
+   height: 100vh;
+   min-height: 250px;
+   background-color: $background-secondary;
+}
+
+
+
+// // // // // // //
+// //  footer  // //
+// // // // // // //
 footer{
    display: flex;
    justify-content: center;
