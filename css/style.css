@@ -96,6 +96,7 @@ nav ul li:hover {
   text-transform: uppercase;
   text-align: center;
   padding: 50px 0;
+  color: #FFFFFF;
 }
 .section__title span {
   font-size: 4.75vw;
@@ -176,6 +177,81 @@ nav ul li:hover {
 
 #work {
   background-color: #1E1E1E;
+}
+
+.work__cont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 30px;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+  margin: 0 100px;
+}
+@media screen and (max-width: 750px) {
+  .work__cont {
+    justify-content: center;
+  }
+}
+.work__card {
+  width: 30%;
+}
+.work__card:hover .work__card-img img {
+  transform: scale(1.7);
+}
+.work__card:hover .work__card-img::after {
+  opacity: 1;
+}
+.work__card:hover .work__card-txt span {
+  transform: rotate(0deg);
+}
+@media screen and (max-width: 750px) {
+  .work__card {
+    width: 90%;
+  }
+}
+.work__card-img {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+}
+.work__card-img img {
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease-in-out;
+}
+.work__card-img::after {
+  content: "En savoir plus";
+  text-transform: uppercase;
+  position: relative;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -101.5%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: saturate(70%) blur(1.5px);
+          backdrop-filter: saturate(70%) blur(1.5px);
+  opacity: 0;
+  color: #FFFFFF;
+  transition: all 0.3s ease-in-out;
+}
+.work__card-txt {
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.work__card-txt h3 {
+  font-size: 20px;
+  color: #FFFFFF;
+}
+.work__card-txt span {
+  transform: rotate(-45deg);
+  color: #FDC935;
+  transition: all 0.2s ease-in-out;
 }
 
 #contact {

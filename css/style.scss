@@ -110,6 +110,7 @@ nav{
       text-transform: uppercase;
       text-align: center;
       padding: 50px 0;
+      color: $color-primary;
       span{
          font-size: ($font-size-subtitle + 0.75vw);
          letter-spacing: 4px;
@@ -131,6 +132,8 @@ nav{
    &__transition{
    height: 40vh;
       &-logo{
+         // background-image: url(../assets/32-banner.png);
+         // background-size: contain;
          background-color: pink;
       }
       &-background{
@@ -187,6 +190,84 @@ nav{
 // // // // // // //
 #work{
    background-color: $background-secondary;
+}
+.work{
+   &__cont{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      row-gap: 30px;
+      column-gap: 5px;
+      margin: 0 100px;
+      @media screen and (max-width: $media-query){
+         justify-content: center;
+      }
+   }
+   &__card{
+      width: 30%;
+      &:hover{
+         .work__card-img img{
+            transform: scale(1.7);
+         }
+         .work__card-img::after{
+            opacity: 1;
+         }
+         .work__card-txt span{
+            transform: rotate(0deg);
+         }
+      }
+      @media screen and (max-width: $media-query){
+         width: 90%;
+      }
+      &-img{
+         width: 100%;
+         height: 150px;
+         overflow: hidden;
+         img{
+            width: 100%;
+            height: 100%;
+            transition: $transition-primary;
+         }
+         &::after{
+            content: "En savoir plus";
+            text-transform: uppercase;
+            position: relative;
+            z-index: 99;
+
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            
+            top: -101.5%;
+            left: 0;
+            
+            background-color: rgba($color-secondary, 0.5);
+         
+            backdrop-filter: saturate(70%) blur(1.5px);
+            opacity: 0;
+            color: $color-primary;
+            transition: $transition-primary;
+         }
+      }
+
+      &-txt{
+         padding: 10px 0;
+         display: flex;
+         justify-content: space-between;
+         h3{
+            font-size: $font-size-text;
+            color: $color-primary;
+         }
+         span{
+            transform: rotate(-45deg);
+            color: $color-tertiary;
+            transition: $transition-secondary;
+         }
+      }
+   }
 }
 
 
