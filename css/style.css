@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/  v2.0 | 20110126 License: none (public domain)*/
 a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
   margin: 0;
@@ -30,19 +31,99 @@ h1, h2, h3, h4, p, a, li {
   font-family: "canada-type-gibson", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .background::before {
   content: "";
   position: absolute;
-  z-index: -1;
+  z-index: -99;
   left: 0;
   width: 100vw;
   height: 100vh;
 }
+.background::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+}
 .background-primary::before {
   background: #FFD433;
+  z-index: -99;
 }
 .background-secondary::before {
   background: #1E1E1E;
+  z-index: -99;
+}
+.background__text-logo::after {
+  margin-top: 80vh;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../assets/big-32.svg);
+  background-position: center;
+}
+.background__text-mail::before {
+  background-image: url(../assets/icon-email.svg);
+  background-position: 15% 100%;
+  background-repeat: no-repeat;
+  background-size: 60vw;
+}
+.background__text-home::after {
+  content: "DESIGNER DESIGNER DESIGNER";
+  position: absolute;
+  color: transparent;
+  position: absolute;
+  -webkit-text-stroke: 0.75px #FFFFFF;
+  text-stroke: 0.75px #FFFFFF;
+  width: -moz-min-content;
+  width: min-content;
+  margin-top: 75px;
+}
+.background__text-contact::after {
+  content: "CONTACT CONTACT CONTACT";
+  font-family: "canada-type-gibson", sans-serif;
+  font-size: 7vw;
+  font-weight: bold;
+  position: absolute;
+  color: transparent;
+  right: 0;
+  -webkit-text-stroke: 0.75px #FFFFFF;
+  text-stroke: 0.75px #FFFFFF;
+  width: -moz-min-content;
+  width: min-content;
+  margin-top: 129px;
+}
+.background__text-bold::after {
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+  left: -20px;
+  opacity: 0.05;
+  filter: saturate(0.2) blur(1.5px);
+  width: 100vw;
+}
+.background__text-bold-about::after {
+  content: "À propos À propos À propos À propos À propos À propos";
+}
+.background__text-bold-work::after {
+  content: "Mes projets Mes projets Mes projets Mes projets Mes projets";
+}
+.background__text-stroke::after {
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+  left: -50px;
+  opacity: 0.1;
+  filter: saturate(0.2) blur(1.5px);
+  width: 100vw;
+}
+.background__text-stroke-about::after {
+  content: "ThirtyTwo ThirtyTwo ThirtyTwo ThirtyTwo ThirtyTwo";
+}
+.background__text-stroke-work::after {
+  content: "Ui design Ui design Ui design Ui design Ui design Ui design";
 }
 
 header {
@@ -70,7 +151,7 @@ nav ul {
   align-items: center;
 }
 nav ul li {
-  font-size: 20px;
+  font-size: 18px;
   color: #000000;
   transition: all 0.2s ease-in-out;
 }
@@ -92,27 +173,63 @@ nav ul li:hover {
 }
 #hero h1 {
   text-transform: uppercase;
-  font-size: 8vw;
+  font-size: 7vw;
   font-weight: bold;
   line-height: 1.15;
   letter-spacing: 2px;
 }
 #hero p {
   width: 60%;
-  font-size: 20px;
+  font-size: 18px;
   padding: 0 0 10px 0;
 }
 
+.button-top {
+  z-index: 100;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 40px;
+  border: #FFFFFF 2px solid;
+  background: #FFFFFF;
+  transition: all 0.3s ease-in-out;
+}
+.button-top:hover {
+  transform: translateY(-4px);
+  border-color: black;
+}
+.button-top span {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  width: 42.5px;
+  height: 42.5px;
+  font-size: 35px;
+  color: #000000;
+  animation: test 1s linear alternate infinite;
+}
+.button-top span:hover {
+  animation-play-state: paused;
+}
+
+@keyframes test {
+  0% {
+    transform: translateY(3px);
+  }
+  100% {
+    transform: translateY(1px);
+  }
+}
 .section__title {
-  font-size: 4vw;
+  font-size: 4.5vw;
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
-  padding: 50px 0;
+  padding: 60px 0;
   color: #FFFFFF;
 }
 .section__title span {
-  font-size: 4.75vw;
+  font-size: 5.25vw;
   letter-spacing: 4px;
   display: block;
   color: transparent;
@@ -147,7 +264,8 @@ nav ul li:hover {
   background: linear-gradient(0deg, #1E1E1E 25%, transparent 80%);
 }
 .section__transition-background {
-  background-color: red;
+  background: rgb(255, 0, 0);
+  background: linear-gradient(352.5deg, #FFD433 50%, #1E1E1E 50%);
 }
 
 .about__cont {
@@ -167,7 +285,7 @@ nav ul li:hover {
   row-gap: 15px;
   width: 50%;
   color: #FFFFFF;
-  font-size: 20px;
+  font-size: 18px;
 }
 @media screen and (max-width: 750px) {
   .about__cont-txt {
@@ -264,13 +382,21 @@ nav ul li:hover {
   justify-content: space-between;
 }
 .work__card-txt h3 {
-  font-size: 20px;
+  font-size: 18px;
   color: #FFFFFF;
 }
 .work__card-txt span {
   transform: rotate(-45deg);
   color: #FDC935;
   transition: all 0.2s ease-in-out;
+}
+
+#contact div {
+  padding: 0 inherit 0 0 !important;
+}
+#contact h2 {
+  font-size: 7vw !important;
+  text-align: left !important;
 }
 
 .form {
@@ -317,7 +443,7 @@ form {
 }
 form input, form textarea, form label {
   color: #000000;
-  font-size: 20px;
+  font-size: 18px;
   font-family: "canada-type-gibson", sans-serif;
   background-color: transparent;
   border: none;

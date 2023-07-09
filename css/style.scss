@@ -19,9 +19,9 @@ $background-primary: #FFD433;
 $background-secondary: #1E1E1E;
 
 $font-family-primary: 'canada-type-gibson', sans-serif;
-$font-size-title: 8vw;
-$font-size-subtitle: 4vw;
-$font-size-text: 20px;
+$font-size-title: 7vw;
+$font-size-subtitle: 4.5vw;
+$font-size-text: 18px;
 
 $transition-primary: all 0.3s ease-in-out;
 $transition-secondary: all 0.2s ease-in-out;
@@ -34,26 +34,116 @@ img{object-fit: cover;}
 a{text-decoration: none; color: inherit;}
 ol,ul{list-style:none}
 h1, h2, h3, h4, p, a, li {font-family: $font-family-primary;}
+html{scroll-behavior: smooth;}
 // // // // // // //
 // //     BG   // //
 // // // // // // //
 .background{
-   &::before{
+   &::before{ // Exclusivement pour les backgrounds
       content: "";
       position: absolute;
-      z-index: -1;
+      z-index: -99;
       left: 0;
       width: 100vw;
       height: 100vh;
    }
+   &::after{ // Pour les logos, textes 
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 0;
+   }
+////////// background /////////////
    &-primary{
       &::before{
          background: $background-primary;
+
+         z-index: -99;
       }
    }
    &-secondary{
       &::before{
          background: $background-secondary;
+         z-index: -99;
+      }
+   }
+////////// text logo /////////////
+   &__text-logo{
+      &::after{
+         margin-top: 80vh;
+         width: 100vw;
+         height: 100vh;
+         background-image: url(../assets/big-32.svg);
+         background-position: center;
+      }
+   }
+   &__text-mail{
+      &::before{
+         background-image: url(../assets/icon-email.svg);
+         background-position: 15% 100%;
+         background-repeat: no-repeat;
+         background-size: 60vw;
+      }
+   }
+   &__text-home{
+      &::after{
+         content: "DESIGNER DESIGNER DESIGNER";
+         position: absolute;
+         color: transparent;
+         position: absolute;
+         -webkit-text-stroke: 0.75px $color-primary;
+         text-stroke: 0.75px $color-primary;
+         width: min-content;
+         margin-top: 75px;
+      }
+   }
+   &__text-contact{
+      &::after{
+         content: "CONTACT CONTACT CONTACT";
+         font-family: $font-family-primary;
+         font-size: $font-size-title;
+         font-weight: bold;
+         position: absolute;
+         color: transparent;
+         right: 0;
+         -webkit-text-stroke: 0.75px $color-primary;
+         text-stroke: 0.75px $color-primary;
+         width: min-content;
+         margin-top: 129px;
+      }
+   }
+   &__text-bold{ // SECTION 
+      &::after{
+         overflow: hidden;
+         white-space: nowrap;
+         position: absolute;
+         left: -20px;
+         opacity: 0.05;
+         filter: saturate(0.2) blur(1.5px);
+         width: 100vw;
+      }
+      &-about::after{
+         content: "À propos À propos À propos À propos À propos À propos";
+      }
+      &-work::after{
+         content: "Mes projets Mes projets Mes projets Mes projets Mes projets";
+      }
+   }
+   &__text-stroke{ // SECTION
+      &::after{
+         overflow: hidden;
+         white-space: nowrap;
+         position: absolute;
+         left: -50px;
+         opacity: 0.1;
+         filter: saturate(0.2) blur(1.5px);
+         width: 100vw;
+      }
+      &-about::after{
+         content: "ThirtyTwo ThirtyTwo ThirtyTwo ThirtyTwo ThirtyTwo";
+      }
+      &-work::after{
+         content: "Ui design Ui design Ui design Ui design Ui design Ui design";
       }
    }
 }
@@ -119,6 +209,46 @@ nav{
    }
 }
 // // // // // // //
+// //   top btn   // 
+// // // // // // //
+.button-top{
+   z-index: 100;
+   position: fixed;
+   bottom: 20px;
+   right: 20px;
+   border-radius: 40px;
+   border: $color-primary 2px solid;
+   background: $color-primary;
+   transition: $transition-primary;
+   &:hover{
+      transform: translateY(-4px);
+      border-color: black;
+   }
+   span{
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+
+      width: 42.5px;
+      height: 42.5px;
+
+      font-size: 35px;
+      color: $color-secondary;
+      animation: test 1s linear alternate infinite;
+      &:hover{
+         animation-play-state: paused;
+      }
+   }
+}
+@keyframes test {
+   0% {
+      transform: translateY(3px);
+   }
+   100% {
+      transform: translateY(1px);
+   }
+}
+// // // // // // //
 // //   section   // 
 // // // // // // //
 .section{
@@ -127,7 +257,7 @@ nav{
       font-weight: bold;
       text-transform: uppercase;
       text-align: center;
-      padding: 50px 0;
+      padding: 60px 0;
       color: $color-primary;
       span{
          font-size: ($font-size-subtitle + 0.75vw);
@@ -163,7 +293,8 @@ nav{
          }
       }
       &-background{
-         background-color: red;
+         background: rgb(255, 0, 0);
+         background: linear-gradient(352.5deg, $background-primary 50%, $background-secondary 50%);
       }
    }
 }
@@ -302,7 +433,13 @@ nav{
 // //   contact   //
 // // // // // // //
 #contact{
-
+   div{
+      padding: 0 inherit 0 0 !important;
+   }
+   h2{
+      font-size: $font-size-title !important;
+      text-align: left !important;
+   }
 }
 .form{
    display: flex;
