@@ -16,7 +16,7 @@
 </head>
 
 <body>
-   <header id="home">
+   <header id="home" class="background background-primary">
     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="60.467" viewBox="0 0 50 60.467"><path id="Tracé_250" data-name="Tracé 250" d="M49.583,26.6a19.793,19.793,0,0,1-8.614,11.577c-1.6,1.017-3.063,1.935-4.512,2.742a31.884,31.884,0,0,1-6.2,2.7A53.279,53.279,0,0,0,23.675,46.3L42.86,50.6l-2.212,9.863L9.045,53.4,10,48.525a15.073,15.073,0,0,1,6.579-9.664,42.9,42.9,0,0,1,9.3-4.4c.321-.111.641-.232.962-.332a42.12,42.12,0,0,0,8.713-3.881,9.294,9.294,0,0,0,4.2-5.861A5.334,5.334,0,0,0,38.3,18.923a7.118,7.118,0,0,0-1.548-1.062l-.033-.011a7.251,7.251,0,0,0-4.147-.52,10.324,10.324,0,0,0-4.5,2.565,23.534,23.534,0,0,0-2.112,2.289c-.321.409-.63.829-.94,1.261-.155.21-.287.431-.42.652l-.2.354-.122.21L15.9,20.217q.7-1.128,1.161-1.957c.31-.553.586-1.073.851-1.581a11.869,11.869,0,0,0,.575-1.194,6.056,6.056,0,0,0,.155-3.45,2.822,2.822,0,0,0-.575-1,4.775,4.775,0,0,0-1.15-.951,3.41,3.41,0,0,0-2.521-.6,4.572,4.572,0,0,0-2.444,1.5,8.244,8.244,0,0,0-1.813,3.273,5.5,5.5,0,0,0-.122,3.107,3.078,3.078,0,0,0,.509.929,3.359,3.359,0,0,0,.863.686L6.358,27.714a12.706,12.706,0,0,1-5.9-7.63,15.689,15.689,0,0,1,.354-8.769A17.786,17.786,0,0,1,5.042,4.3,15.789,15.789,0,0,1,8.537,1.64,12.959,12.959,0,0,1,13,.114a12.278,12.278,0,0,1,4.843.3A14.348,14.348,0,0,1,25.3,5.322a11.5,11.5,0,0,1,1.5,2.466c.133-.055.276-.1.409-.144a18.838,18.838,0,0,1,17.936,3.87q6.27,6.038,4.434,15.083" transform="translate(0 0)" fill="#020202"/></svg>
     <nav>
       <ul>
@@ -28,13 +28,13 @@
   </header> 
 
   <main>
-    <section id="hero">
+    <section id="hero" class="background background-primary">
       <h1>UI|UX Designer <span>Indépendant</span></h1>
       <p>À la recherche d'un UI / UX designer pour créer des interfaces de design pour votre site web ou votre application d'entreprise ?</p>
       <p>Contactez-moi sans hésitation pour une expérience utilisateur exceptionnelle 🚀</p>
     </section>
 
-    <section id="about" class="section__cont">
+    <section id="about" class="section__cont background background-secondary">
       <div class="section__title">
         <h2>À propos <span>ThirtyTwo</span></h2>
       </div>
@@ -52,11 +52,11 @@
     </section>
 
     <aside class="section__transition section__transition-logo">
-
+      <!-- <img src="./assets/banner-transition-logo.svg" alt="Logos de l'agence ThirtyTwo en banniere"> -->
     </aside>
 <!-- PENSE BIEN A COMPRESSER TES IMG ET LES REDIMENSIONNER AU DIAMETRE DE LA CARD SA COMPTE BCP DS LE SEO LE GREEN CODE -->
-    <section id="work" class="section__cont"> 
-      <div class="section__title">
+    <section id="work" class="section__cont background background-secondary"> 
+      <div class="section__title padding__top-none">
         <h2>Mes projets <span>Ui design</span></h2>
       </div>
       <div class="work__cont">
@@ -137,25 +137,33 @@
 
     </aside>
 
-    <section id="contact" class="section__cont">
+    <section id="contact" class="section__cont background background-primary">
       <div class="section__title">
         <h2>Un besoin ?<span></span></h2>
       </div>
-      <article class="form-contact">
+      <article class="form">
         <form id="contact-form" method="#">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Nom.." required>
-          <label for="subject">Subject</label>
-          <input type="text" id="subject" name="subject" placeholder="Sujet.." required>
-          <label for="email">Email</label>
-          <input type="text" id="email" name="email" placeholder="Email.." required>
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Votre message.." required style="height:200px"></textarea>
-          <input type="submit" value="Vers l'infini et au delà 🚀">
+          <div class="form__cont">
+            <div class="form__cont-column">
+              <label for="name">Nom</label>
+              <input type="text" id="name" name="name" placeholder="" required>
+              <label for="name">Prénom</label>
+              <input type="text" id="name" name="name" placeholder="" required>
+              <label for="subject">Sujet</label>
+              <input type="text" id="subject" name="subject" placeholder="" required>
+            </div>
+            <div class="form__cont-column">
+              <label for="email">Adresse mail</label>
+              <input type="text" id="email" name="email" placeholder="" required>
+              <label for="message" class="label-textarea">Message</label>
+              <textarea id="message" name="message" placeholder="" required></textarea>
+            </div>
+          </div>
+          <input type="submit" value="ENVOYER">
         </form>
         <div id="confirmation-message" style="display:none;">
           <h3>Nous vous remercions chaleureusement pour votre message ! 🚀</h3><br>
-          <p>Votre envoi a bien été effectué et nous avons bien reçu vos informations.<br> Nous mettons tout en œuvre pour vous répondre dans les plus brefs délais. N'hésitez pas à nous contacter si vous avez d'autres questions ou besoins.</p>
+          <p>Votre envoi a bien été effectué et nous avons bien reçu vos informations.<br> Nous mettons tout en œuvre pour vous répondre dans les plus brefs délais.</p>
         </div>
       </article>
     </section>
@@ -168,8 +176,19 @@
   </main>
 
 
-  <footer>
-    <p>- Created by <a href="https://github.com/MathysCogne">Mathys Cogné</a> -</p>
+  <footer class="footer">
+    <div class="footer__cont-txt">
+      <p>Tous droits réservés - Copyright © ThirtyTwo 2023</p>
+      <p>Développé par <a href="https://www.mathys-cognefoucault.fr/">Mathys Cogné-Foucault</a> | Design ThirtyTwo</p>
+    </div>
+    <div class="footer__cont-cta">
+      <a href="https://www.behance.net/mathisptt">
+        <img src="./assets/icon-behance.svg" alt="Icone de behance">
+      </a>
+      <a href="https://www.linkedin.com/in/mathispetit32/">
+        <img src="./assets/icon-linkedin.svg" alt="Icone de linkedin">
+      </a>
+    </div>
   </footer>
 </body>
 <script src="./js/script.js"></script>
