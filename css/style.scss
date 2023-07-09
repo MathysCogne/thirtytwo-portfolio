@@ -15,7 +15,7 @@ $color-primary: #FFFFFF;
 $color-secondary: #000000;
 $color-tertiary: #FDC935; 
 
-$background-primary: linear-gradient(to bottom, #ffd200, #FDD033);
+$background-primary: #FFD433;
 $background-secondary: #1E1E1E;
 
 $font-family-primary: 'canada-type-gibson', sans-serif;
@@ -374,6 +374,9 @@ form{
    }
    input[type="submit"]{   
       cursor: pointer;
+      &:hover{
+         border: 2px solid $color-primary;
+      }
    }
 }
 
@@ -383,7 +386,7 @@ form{
 // //  footer  // //
 // // // // // // //
 .footer{
-   background: $background-primary;
+   background-color: $background-primary;
    height: 20vh;
    min-height: 150px;
    display: flex;

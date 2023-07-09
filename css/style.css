@@ -39,7 +39,7 @@ h1, h2, h3, h4, p, a, li {
   height: 100vh;
 }
 .background-primary::before {
-  background: linear-gradient(to bottom, #ffd200, #FDD033);
+  background: #FFD433;
 }
 .background-secondary::before {
   background: #1E1E1E;
@@ -351,9 +351,12 @@ form textarea {
 form input[type=submit] {
   cursor: pointer;
 }
+form input[type=submit]:hover {
+  border: 2px solid #FFFFFF;
+}
 
 .footer {
-  background: linear-gradient(to bottom, #ffd200, #FDD033);
+  background-color: #FFD433;
   height: 20vh;
   min-height: 150px;
   display: flex;
