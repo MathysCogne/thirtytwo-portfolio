@@ -26,7 +26,7 @@ $font-size-text: 18px;
 $transition-primary: all 0.3s ease-in-out;
 $transition-secondary: all 0.2s ease-in-out;
 
-$shadow-primary: 0 0 10px rgba(0, 0, 0, 0.1);
+$animation-time-loader: 3s; // Attention à modifier également dans le JS qui bloque le scrool au loading
 
 $media-query: 750px;
 // // // // // // //
@@ -35,6 +35,98 @@ a{text-decoration: none; color: inherit;}
 ol,ul{list-style:none}
 h1, h2, h3, h4, p, a, li {font-family: $font-family-primary;}
 html{scroll-behavior: smooth;}
+// // // // // // //
+// //   LOADER  / //
+// // // // // // //
+body.loading { //Bloque le scrool, classe ajoutée par le loader.js 
+   overflow: hidden;
+}
+#loader {
+   position: fixed;
+   z-index: 9999;
+   top: 0vh;
+   left: 0vw;
+   width: 100vw;
+   height: 100vh;
+   overflow: hidden;
+   animation: loader $animation-time-loader ease-in-out forwards;
+   transform-origin: center center;
+   pointer-events: none;
+   @keyframes loader {
+      90% {
+         opacity: 1;
+      }
+      100% {
+         opacity: 0;
+      }
+   }
+   &::after{
+      content: "welcome";
+      position: absolute;
+      z-index: 99999;
+      font-family: $font-family-primary;
+      width: 0;
+      height: 0;
+      top: 40%;
+      left: 35%;
+      font-size: $font-size-title;
+      font-weight: bold;
+      color: $color-primary;  
+      animation: loader-text $animation-time-loader ease-in-out forwards;
+      @keyframes loader-text {
+         0% {
+            transform: perspective(1000px) translate3d(0, 0, 750px);
+         }
+         10% {
+            transform: perspective(1000px) translate3d(0px, 0, 0px);
+         }
+         66% {
+            opacity: 1;
+         }
+         100% {
+            opacity: 0;
+         }
+      }   
+   }
+   &-left, &-right {
+      z-index: 9999;
+      position: absolute;      
+  }
+   &-left {
+      left: 0;
+      animation: loader-left $animation-time-loader ease-in-out forwards;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 0 100vh 100vw;
+      border-color: transparent transparent $background-secondary transparent;
+      @keyframes loader-left {
+         80% {
+            transform: translateX(0);
+         }
+         100% {
+            transform: translateX(100%);
+         }
+      }
+   } 
+   &-right {
+      right: 0px;
+      animation: loader-right $animation-time-loader ease-in-out forwards;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 100.3vh 100vw 0 0;
+      border-color: $background-secondary transparent transparent transparent;
+      @keyframes loader-right {
+         80% {
+            transform: translateX(0);
+         }
+         100% {
+            transform: translateX(-100%);
+         }
+      }
+   }
+}
 // // // // // // //
 // //     BG   // //
 // // // // // // //
@@ -78,11 +170,11 @@ html{scroll-behavior: smooth;}
       }
    }
    &__text-mail{
-      &::before{
+      &::before{ // Placé sur le before du bg de la home
          background-image: url(../assets/icon-email.svg);
-         background-position: 15% 100%;
+         background-position: 20% 100%;
          background-repeat: no-repeat;
-         background-size: 60vw;
+         background-size: 40vw;
       }
    }
    &__text-home{
@@ -234,18 +326,11 @@ nav{
 
       font-size: 35px;
       color: $color-secondary;
-      animation: test 1s linear alternate infinite;
+      animation: btn-top 1s linear alternate infinite;
+      @keyframes btn-top { 0% { transform: translateY(3px);} 100% { transform: translateY(1px);} }
       &:hover{
          animation-play-state: paused;
       }
-   }
-}
-@keyframes test {
-   0% {
-      transform: translateY(3px);
-   }
-   100% {
-      transform: translateY(1px);
    }
 }
 // // // // // // //
@@ -301,8 +386,6 @@ nav{
 // // // // // // //
 // //   about  // //
 // // // // // // //
-#about{
-}
 .about__cont{
    display: flex;
    min-height: 50vh;
@@ -344,8 +427,6 @@ nav{
 // // // // // // //
 // //   work   // //
 // // // // // // //
-#work{
-}
 .padding__top-none{
    padding-top: 0 !important;
 }
@@ -427,8 +508,6 @@ nav{
       }
    }
 }
-
-
 // // // // // // //
 // //   contact   //
 // // // // // // //
@@ -516,9 +595,6 @@ form{
       }
    }
 }
-
-
-
 // // // // // // //
 // //  footer  // //
 // // // // // // //

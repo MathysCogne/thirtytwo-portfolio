@@ -35,6 +35,97 @@ html {
   scroll-behavior: smooth;
 }
 
+body.loading {
+  overflow: hidden;
+}
+
+#loader {
+  position: fixed;
+  z-index: 9999;
+  top: 0vh;
+  left: 0vw;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  animation: loader 3s ease-in-out forwards;
+  transform-origin: center center;
+  pointer-events: none;
+}
+@keyframes loader {
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+#loader::after {
+  content: "welcome";
+  position: absolute;
+  z-index: 99999;
+  font-family: "canada-type-gibson", sans-serif;
+  width: 0;
+  height: 0;
+  top: 40%;
+  left: 35%;
+  font-size: 7vw;
+  font-weight: bold;
+  color: #FFFFFF;
+  animation: loader-text 3s ease-in-out forwards;
+}
+@keyframes loader-text {
+  0% {
+    transform: perspective(1000px) translate3d(0, 0, 750px);
+  }
+  10% {
+    transform: perspective(1000px) translate3d(0px, 0, 0px);
+  }
+  66% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+#loader-left, #loader-right {
+  z-index: 9999;
+  position: absolute;
+}
+#loader-left {
+  left: 0;
+  animation: loader-left 3s ease-in-out forwards;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 100vh 100vw;
+  border-color: transparent transparent #1E1E1E transparent;
+}
+@keyframes loader-left {
+  80% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+#loader-right {
+  right: 0px;
+  animation: loader-right 3s ease-in-out forwards;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 100.3vh 100vw 0 0;
+  border-color: #1E1E1E transparent transparent transparent;
+}
+@keyframes loader-right {
+  80% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 .background::before {
   content: "";
   position: absolute;
@@ -66,9 +157,9 @@ html {
 }
 .background__text-mail::before {
   background-image: url(../assets/icon-email.svg);
-  background-position: 15% 100%;
+  background-position: 20% 100%;
   background-repeat: no-repeat;
-  background-size: 60vw;
+  background-size: 40vw;
 }
 .background__text-home::after {
   content: "DESIGNER DESIGNER DESIGNER";
@@ -206,13 +297,9 @@ nav ul li:hover {
   height: 42.5px;
   font-size: 35px;
   color: #000000;
-  animation: test 1s linear alternate infinite;
+  animation: btn-top 1s linear alternate infinite;
 }
-.button-top span:hover {
-  animation-play-state: paused;
-}
-
-@keyframes test {
+@keyframes btn-top {
   0% {
     transform: translateY(3px);
   }
@@ -220,6 +307,10 @@ nav ul li:hover {
     transform: translateY(1px);
   }
 }
+.button-top span:hover {
+  animation-play-state: paused;
+}
+
 .section__title {
   font-size: 4.5vw;
   font-weight: bold;
