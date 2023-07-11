@@ -1,23 +1,26 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   // Valider les données
    if (
       !empty($_POST['name']) &&
+      !empty($_POST['prenom']) &&
       !empty($_POST['subject']) &&
       !empty($_POST['email']) &&
       !empty($_POST['message'])
    ) {
       // Récupérer les données du formulaire et nettoyer
       $name = htmlspecialchars($_POST['name']);
+      $prenom = htmlspecialchars($_POST['prenom']);
       $subject = htmlspecialchars($_POST['subject']);
       $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
       $message = htmlspecialchars($_POST['message']);
 
       // Adresse email sur laquelle vous souhaitez recevoir les messages
       $to = "contact@mathys-cognefoucault.fr";
+      // $to = "mathispetit82@gmail.com";
 
-      // Préparer le contenu de l'email
+      // Le contenu de l'email
       $email_content = "Nom: $name\n";
+      $email_content .= "Prénom: $prenom\n";
       $email_content .= "Sujet: $subject\n";
       $email_content .= "Email: $email\n";
       $email_content .= "Message:\n$message\n";
@@ -30,16 +33,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
       // Envoyer l'email avec le protocole SMTP
       $subject = "PORFOFOLIO - Nouveau message depuis le formulaire de contact / $name";
-
-      // Envoyer l'email avec SMTP
       mail($to, $subject, $email_content, $headers, "-f $email");
 
-      // Envoyer une réponse au formulaire pour indiquer que le traitement a été effectué avec succès
-      http_response_code(200); // OK
-      echo "Le formulaire a été soumis avec succès.";
+      http_response_code(200);
+      // echo "Le formulaire a été soumis avec succès."; 
    } else {
-      // Si les données sont manquantes, envoyer une réponse d'erreur
-      http_response_code(400); // Bad Request
-      echo "Veuillez remplir tous les champs du formulaire.";
+      http_response_code(400);
+      // echo "Veuillez remplir tous les champs du formulaire.";
    }
 }

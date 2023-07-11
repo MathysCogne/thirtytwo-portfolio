@@ -21,6 +21,33 @@
   <!-- OG -->
   <title>ThirtyTwo - Mathis Petit | UI|UX designer en freelance</title>
   <meta name="description" content="ThirtyTwo - Portfolio de l'agence Ui/Ux de Mathis Petit." />
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "LocalBusiness",
+      "name": "ThirtyTwo - Mathys Petit",
+      "telephone": "0782816424",
+      "email": "mathispetit82@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rue de la palestine",
+        "addressLocality": "Rennes",
+        "addressCountry": "France",
+        "postalCode": "35000"
+      },
+      "url": "https://www..fr/" ////////////////////////// INSCRIRE LE LIEN DU SITE
+    }
+  </script>
+  <!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://www..fr/"> <!--////////////////////////// INSCRIRE LE LIEN DU SITE & description-->
+	<meta property="og:title" content="Mathys Petit| ThirtyTwo">
+	<meta property="og:description" content=" DESCRIPTION ICI ">
+
+	<!-- Twitter -->
+	<meta property="twitter:url" content="https://www..fr/"> <!--////////////////////////// INSCRIRE LE LIEN DU SITE & description-->
+	<meta property="twitter:title" content="Mathys Petit| ThirtyTwo"> 
+	<meta property="twitter:description" content=" DESCRIPTION ICI ">
 </head>
 
 <body>
@@ -37,6 +64,21 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+    <!-- BURGER MENU -->
+    <button id="burger-button">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+    <div id="burger-menu" style="display: none;">
+      <button id="close-button">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <ul>
+        <li class="nav-item"><a href="#home">Home</a></li>
+        <li class="nav-item"><a href="#about">À propos</a></li>
+        <li class="nav-item"><a href="#projects">Mes projets</a></li>
+        <li class="nav-item"><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
   </header> 
 
   <main>
@@ -58,30 +100,30 @@
 
     <section id="about" class="section__cont background background-secondary">
       <div class="section__title">
-        <h2><strong class="background__text-bold background__text-bold-about">À propos</strong> <span class="background__text-stroke background__text-stroke-about">ThirtyTwo</span></h2>
+        <h2><strong class="background__text-bold background__text-bold-about reveal">À propos</strong> <span class="background__text-stroke background__text-stroke-about reveal">ThirtyTwo</span></h2>
       </div>
       <article class="about__cont">
-        <div class="about__cont-txt">
+        <div class="about__cont-txt reveal">
           <p>Salut ! Je suis Mathis Petit, UI/UX Designer, basé à Rennes.</p>
           <p>J’adore le web design, l’UX/UI, la musique et les nouvelles technologies. Mon objectif est de créer des expériences en ligne mémorables qui améliorent la vie des utilisateurs.</p>
           <p>J’ai décidé de créer mon entreprise : «thirtytwo» afin de proposer ma méthode de travail et mon savoir-faire aux personnes étant dans le besoin.</p>
           <p>Cela me permet aussi de vivre de nouvelles expériences professionnelles et de prendre du plaisir car c’est aussi une passion.</p>
         </div>
-        <div class="about__cont-img">
+        <div class="about__cont-img reveal">
           <img src="./assets/illu-mat.jpg" alt="Illustration de Mathis Petit - Ui Ux designer">
         </div>
       </article>
     </section>
 
     <aside class="section__transition section__transition-logo">
-      <!---->
+      <!-- EN CSS -->
     </aside>
 <!-- PENSE BIEN A COMPRESSER TES IMG ET LES REDIMENSIONNER AU DIAMETRE DE LA CARD SA COMPTE BCP DS LE SEO LE GREEN CODE -->
     <section id="work" class="section__cont background background-secondary"> 
       <div class="section__title padding__top-none">
-        <h2><strong class="background__text-bold background__text-bold-work">Mes projets</strong> <span class="background__text-stroke background__text-stroke-work">Ui design</span></h2>
+        <h2><strong class="background__text-bold background__text-bold-work reveal">Mes projets</strong> <span class="background__text-stroke background__text-stroke-work reveal">Ui design</span></h2>
       </div>
-      <div class="work__cont">
+      <div class="work__cont reveal">
         <article class="work__card">
           <a href="https://www.linkedin.com/in/mathispetit32/">
             <div class="work__card-img">
@@ -93,7 +135,7 @@
             </div>
           </a>
         </article>
-        <article class="work__card">
+        <article class="work__card ">
           <a href="https://www.linkedin.com/in/mathispetit32/">
             <div class="work__card-img">
               <img src="./assets/projet-2.jpg" alt="Maquette d'interface web de Mathis Petit - øINSERER NOM DU PROJETø">
@@ -117,7 +159,7 @@
         </article>
       </div>
 
-      <div class="work__cont">
+      <div class="work__cont reveal">
         <article class="work__card">
           <a href="https://www.linkedin.com/in/mathispetit32/">
             <div class="work__card-img">
@@ -160,17 +202,17 @@
     </aside>
 
     <section id="contact" class="section__cont background background-primary background__text-mail">
-      <div class="section__title">
+      <div class="section__title reveal">
         <h2>Un besoin ?<span></span></h2>
       </div>
-      <article class="form">
+      <article class="form reveal">
         <form id="contact-form" method="#">
           <div class="form__cont">
             <div class="form__cont-column">
               <label for="name">Nom</label>
               <input type="text" id="name" name="name" placeholder="" required>
-              <label for="name">Prénom</label>
-              <input type="text" id="name" name="name" placeholder="" required>
+              <label for="prenom">Prénom</label>
+              <input type="text" id="prenom" name="prenom" placeholder="" required>
               <label for="subject">Sujet</label>
               <input type="text" id="subject" name="subject" placeholder="" required>
             </div>
@@ -185,7 +227,7 @@
         </form>
         <div id="confirmation-message" style="display:none;">
           <h3>Nous vous remercions chaleureusement pour votre message ! 🚀</h3><br>
-          <p>Votre envoi a bien été effectué et nous avons bien reçu vos informations.<br> Nous mettons tout en œuvre pour vous répondre dans les plus brefs délais.</p>
+          <p>Votre envoi a bien été effectué et nous avons bien reçu vos informations.</p>
         </div>
       </article>
     </section>
@@ -213,6 +255,9 @@
     </div>
   </footer>
 </body>
-<script src="./js/script.js"></script>
 <script src="./js/loader.js"></script>
+<script src="./js/form.js"></script>
+<script src="./js/burgerMenu.js"></script>
+<script src="./js/scrool.js"></script>
+<script src=""></script>
 </html>
