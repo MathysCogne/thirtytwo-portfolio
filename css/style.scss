@@ -22,6 +22,9 @@ $font-family-primary: 'canada-type-gibson', sans-serif;
 $font-size-title: 7vw;
 $font-size-subtitle: 4.5vw;
 $font-size-text: 18px;
+$font-size-title_mobile: 10vw;
+$font-size-subtitle_mobile: 8vw;
+$font-size-text_mobile: 20px;
 
 $transition-primary: all 0.3s ease-in-out;
 $transition-secondary: all 0.2s ease-in-out;
@@ -35,6 +38,7 @@ a{text-decoration: none; color: inherit;}
 ol,ul{list-style:none}
 h1, h2, h3, h4, p, a, li {font-family: $font-family-primary;}
 html{scroll-behavior: smooth;}
+body{width: 100vw;overflow-x: hidden;} // Commenter pour debug
 // // // // // // //
 // //  ANIMATIONS //
 // // // // // // //
@@ -171,6 +175,9 @@ body.loading { //Bloque le scrool, classe ajoutée par le loader.js
       &::before{
          background: $background-secondary;
          z-index: -99;
+         @media screen and (max-width: $media-query){
+            height: 200%;
+         }
       }
    }
 ////////// text logo /////////////
@@ -181,6 +188,7 @@ body.loading { //Bloque le scrool, classe ajoutée par le loader.js
          height: 100vh;
          background-image: url(../assets/big-32.svg);
          background-position: center;
+         background-repeat: no-repeat;
       }
    }
    &__text-mail{
@@ -201,6 +209,10 @@ body.loading { //Bloque le scrool, classe ajoutée par le loader.js
          text-stroke: 0.75px $color-primary;
          width: min-content;
          margin-top: 75px;
+         right: 0;
+         @media screen and (max-width: $media-query){
+            display: none;
+         }
       }
    }
    &__text-contact{
@@ -215,7 +227,10 @@ body.loading { //Bloque le scrool, classe ajoutée par le loader.js
          -webkit-text-stroke: 0.75px $color-primary;
          text-stroke: 0.75px $color-primary;
          width: min-content;
-         margin-top: 129px;
+         margin-top: 259px;
+         @media screen and (max-width: $media-query){
+            display: none;
+         }
       }
    }
    &__text-bold{ // SECTION 
@@ -223,7 +238,7 @@ body.loading { //Bloque le scrool, classe ajoutée par le loader.js
          overflow: hidden;
          white-space: nowrap;
          position: absolute;
-         left: -20px;
+         right: 0;
          opacity: 0.05;
          filter: saturate(0.2) blur(1.5px);
          width: 100vw;
@@ -240,10 +255,11 @@ body.loading { //Bloque le scrool, classe ajoutée par le loader.js
          overflow: hidden;
          white-space: nowrap;
          position: absolute;
-         left: -50px;
+         right: 0;
          opacity: 0.1;
          filter: saturate(0.2) blur(1.5px);
          width: 100vw;
+         display: inline;
       }
       &-about::after{
          content: "ThirtyTwo ThirtyTwo ThirtyTwo ThirtyTwo ThirtyTwo";
@@ -298,10 +314,13 @@ nav{
    width: $container-width-desktop;
    @media screen and (max-width: $media-query){
       width: $container-width-mobile;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
    }
 
    height: 80vh;
-   min-height: 300px; // VALEUR A MODIFIER ///////////////////////////////////////////////////////////////
 
    color: $color-primary;
    h1{
@@ -310,11 +329,25 @@ nav{
       font-weight: bold;
       line-height: 1.15;
       letter-spacing: 2px;
+      @media screen and (max-width: $media-query){
+         font-size: $font-size-title-mobile;
+         margin: 5vh 0;
+      }
    }
    p{
       width: 60%;
       font-size: $font-size-text;
       padding: 0 0 10px 0;
+      @media screen and (max-width: $media-query){
+         
+         width: 100%;
+         font-size: $font-size-text-mobile;
+      }
+   }
+   article {
+      @media screen and (max-width: $media-query){
+         margin: 10vh 0;
+      }
    }
 }
 // BURGER MENU 
@@ -327,7 +360,7 @@ nav{
       z-index: 1;
       top: 0;
       right: 0;
-      padding: 7vh;
+      padding: 7vh 4vh;
       @media screen and (max-width: $media-query){
          display: block;
       }
@@ -424,13 +457,18 @@ nav{
       text-align: center;
       padding: 60px 0;
       color: $color-primary;
+      @media screen and (max-width: $media-query){
+         font-size: $font-size-subtitle-mobile;
+      }
       span{
          font-size: ($font-size-subtitle + 0.75vw);
          letter-spacing: 4px;
-         display: block;
          color: transparent;
          -webkit-text-stroke: 1px $color-tertiary;
          text-stroke: 1px $color-tertiary;
+         @media screen and (max-width: $media-query){
+            font-size: ($font-size-subtitle-mobile + 0.75vw);
+         }
       }
    }
    &__cont{
@@ -438,27 +476,29 @@ nav{
       width: $container-width-desktop;
       @media screen and (max-width: $media-query){
          width: $container-width-mobile;
+         height: auto;
       }
       height: 100vh;
       min-height: 300px;
+      
    }
    &__transition{
    height: 40vh;
       &-logo{
          background-image: url(../assets/banner-transition-logo.svg);
-         background-size: fill;
+         background-size: cover;
          background-color: $background-secondary;
+         background-repeat: no-repeat;
          &::before{
             content: "";
             position: absolute;
             z-index: 3;
             width: 100%;
             height: 40vh;
-            background: linear-gradient(0deg, $background-secondary 25%, transparent 80%);
+            background: linear-gradient(0deg, $background-secondary 40%, transparent 70%);
          }
       }
       &-background{
-         background: rgb(255, 0, 0);
          background: linear-gradient(352.5deg, $background-primary 50%, $background-secondary 50%);
       }
    }
@@ -510,6 +550,11 @@ nav{
 .padding__top-none{
    padding-top: 0 !important;
 }
+#work{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between
+}
 .work{
    &__cont{
       display: flex;
@@ -518,8 +563,10 @@ nav{
       row-gap: 30px;
       column-gap: 5px;
       margin: 0 100px;
+      margin-bottom: 100px;
       @media screen and (max-width: $media-query){
          justify-content: center;
+         margin: 0;
       }
    }
    &__card{
@@ -540,7 +587,7 @@ nav{
       }
       &-img{
          width: 100%;
-         height: 150px;
+         height: 20vh;
          overflow: hidden;
          img{
             width: 100%;
@@ -589,6 +636,9 @@ nav{
             transform: rotate(-45deg);
             color: $color-tertiary;
             transition: $transition-secondary;
+            @media screen and (max-width: $media-query){
+               transform: rotate(0deg);
+            }
          }
       }
    }
@@ -688,8 +738,12 @@ form{
    height: 20vh;
    min-height: 150px;
    display: flex;
-   justify-content: space-between;
+   justify-content: center;
    align-items: center;
+   @media screen and (max-width: $media-query){
+      height: 40vh;
+      flex-direction: column-reverse;
+   }
    &__cont-txt{
       color: $color-primary;
       display: inline-block;
@@ -697,6 +751,14 @@ form{
       width: 60%;
       text-align: center;
       margin-left: 20%;
+      // responsive
+      @media screen and (max-width: $media-query){
+         width: 100%;
+         margin: 0;
+         p{
+            margin: 10px 0;
+         }
+      }
       a{
          color: #4a4a4ab7;
       }
@@ -706,6 +768,11 @@ form{
       display: flex;
       justify-content: space-evenly;
       align-items: center;
+      // responsive
+      @media screen and (max-width: $media-query){
+         width: 100%;
+         margin: 20px 0;
+      }
    }
    a, img{
       transition: $transition-secondary;
