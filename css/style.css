@@ -183,6 +183,12 @@ body.loading {
   background-repeat: no-repeat;
   background-size: 40vw;
 }
+@media screen and (max-width: 750px) {
+  .background__text-mail::before {
+    background-size: 70vw;
+    background-position: -45% 70%;
+  }
+}
 .background__text-home::after {
   content: "DESIGNER DESIGNER DESIGNER";
   position: absolute;
@@ -498,7 +504,8 @@ nav ul li:hover {
 }
 @media screen and (max-width: 750px) {
   .about__cont {
-    flex-direction: column;
+    flex-direction: column-reverse;
+    margin-bottom: 5vh;
     row-gap: 40px;
   }
 }
@@ -631,12 +638,24 @@ nav ul li:hover {
   }
 }
 
+@media screen and (max-width: 750px) {
+  #contact {
+    min-height: 80vh !important;
+  }
+}
 #contact div {
-  padding: 0 inherit 0 0 !important;
+  padding: 0 0 0 0 !important;
 }
 #contact h2 {
   font-size: 7vw !important;
   text-align: left !important;
+}
+@media screen and (max-width: 750px) {
+  #contact h2 {
+    font-size: 10vw !important;
+    text-align: center !important;
+    margin-top: -100px;
+  }
 }
 
 .form {
@@ -670,14 +689,15 @@ nav ul li:hover {
 form {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   row-gap: 50px;
   min-height: 50vh;
-  max-width: 700px;
+  max-width: 900px;
   width: 75%;
 }
 @media screen and (max-width: 750px) {
   form {
+    justify-content: flex-start;
     width: 100%;
   }
 }
@@ -731,17 +751,17 @@ form input[type=submit]:hover {
 }
 @media screen and (max-width: 750px) {
   .footer {
-    height: 40vh;
     flex-direction: column-reverse;
+    height: 40vh;
   }
 }
 .footer__cont-txt {
   color: #FFFFFF;
   display: inline-block;
   flex-direction: column;
-  width: 60%;
+  width: 70%;
   text-align: center;
-  margin-left: 20%;
+  margin-left: 22.5%;
 }
 @media screen and (max-width: 750px) {
   .footer__cont-txt {
