@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
       // Adresse email sur laquelle vous souhaitez recevoir les messages
       $to = "contact@mathys-cognefoucault.fr";
-      // $to = "mathispetit82@gmail.com";
+      // $to = "contact@thirtytwo-agency.fr";
 
       // Le contenu de l'email
       $email_content = "Nom: $name\n";
@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $headers .= "Content-type: text/plain; charset=UTF-8\r\n";
 
       // Envoyer l'email avec le protocole SMTP
-      $subject = "PORFOFOLIO - Nouveau message depuis le formulaire de contact / $name";
+      $subject = "PORFOFOLIO / $name - Nouveau message depuis le formulaire de contact";
       mail($to, $subject, $email_content, $headers, "-f $email");
 
       http_response_code(200);

@@ -19,7 +19,7 @@ contactForm.addEventListener('submit', function(event) {
    formData.append('message', message);
 
    // ENvoyer les donees au form.php
-   fetch('form.php', {
+   fetch('../php/form.php', {
       method: 'POST',
       body: formData
    })

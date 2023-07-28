@@ -6,10 +6,10 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 // // // // // // //
 $container-width-desktop: 85%;
 $container-width-mobile: 95%;
+$container-large-desktop: 80%;
 
-// $container-max-width: 1150px;
+$section-min-height: 110vh;
 
-$section-min-height: 100vh;
 
 $color-primary: #FFFFFF;
 $color-secondary: #000000;
@@ -155,7 +155,7 @@ body.loading { //Bloque le scrool, classe ajoutée par le loader.js
       z-index: -99;
       left: 0;
       width: 100vw;
-      height: 100vh;
+      height: $section-min-height;
    }
    &::after{ // Pour les logos, textes 
       content: "";
@@ -165,7 +165,7 @@ body.loading { //Bloque le scrool, classe ajoutée par le loader.js
    }
 ////////// background /////////////
    &-primary{
-      &::before{
+      &::before{ 
          background: $background-primary;
 
          z-index: -99;
@@ -176,7 +176,7 @@ body.loading { //Bloque le scrool, classe ajoutée par le loader.js
          background: $background-secondary;
          z-index: -99;
          @media screen and (max-width: $media-query){
-            height: 200%;
+            height: 250%;
          }
       }
    }
@@ -213,8 +213,10 @@ body.loading { //Bloque le scrool, classe ajoutée par le loader.js
          -webkit-text-stroke: 0.75px $color-primary;
          text-stroke: 0.75px $color-primary;
          width: min-content;
-         margin-top: 75px;
+         margin-top: 120px;
          right: 0;
+         opacity: 0.75;
+         line-height: 0.9;
          @media screen and (max-width: $media-query){
             display: none;
          }
@@ -228,11 +230,13 @@ body.loading { //Bloque le scrool, classe ajoutée par le loader.js
          font-weight: bold;
          position: absolute;
          color: transparent;
+         line-height: 0.9;
          right: 0;
          -webkit-text-stroke: 0.75px $color-primary;
          text-stroke: 0.75px $color-primary;
          width: min-content;
          margin-top: 259px;
+         opacity: 0.75;
          @media screen and (max-width: $media-query){
             display: none;
          }
@@ -265,6 +269,7 @@ body.loading { //Bloque le scrool, classe ajoutée par le loader.js
          filter: saturate(0.2) blur(1.5px);
          width: 100vw;
          display: inline;
+         z-index: -1;
       }
       &-about::after{
          content: "ThirtyTwo ThirtyTwo ThirtyTwo ThirtyTwo ThirtyTwo";
@@ -472,9 +477,15 @@ nav{
          color: transparent;
          -webkit-text-stroke: 1px $color-tertiary;
          text-stroke: 1px $color-tertiary;
+         background-color: $background-secondary;
+         z-index: 2;
          @media screen and (max-width: $media-query){
             font-size: ($font-size-subtitle-mobile + 0.75vw);
          }
+      }
+      strong{
+         z-index: 2;
+         background-color: $background-secondary;
       }
    }
    &__cont{
@@ -484,7 +495,10 @@ nav{
          width: $container-width-mobile;
          height: auto;
       }
-      height: 100vh;
+      @media screen and (min-width: 2200px){
+         width: $container-large-desktop;
+      }
+      height: $section-min-height;
       min-height: 300px;
       
    }
@@ -514,18 +528,22 @@ nav{
 // // // // // // //
 .about__cont{
    display: flex;
-   min-height: 50vh;
    align-items: center;
+   width: 95%;
+   margin: auto;
+   min-height: 60vh;
+   justify-content: space-around;
+   column-gap: 5%;
    @media screen and (max-width: $media-query){
       flex-direction: column-reverse;
-      margin-bottom: 5vh;
+      margin: 10vh 0;
       row-gap: 40px;
    }
    &-txt{
       display: flex;
       flex-direction: column;
-      row-gap: 15px;
-      width: 50%;
+      row-gap: 20px;
+      width: 45%;
       color: $color-primary;
       font-size: $font-size-text;
       @media screen and (max-width: $media-query){
@@ -541,7 +559,7 @@ nav{
       }
       img{
          width: 55%;
-         border-radius: 0 30px 0 30px;
+         border-radius: 30px;
          @media screen and (max-width: $media-query){
             width: 90%;
          }
@@ -560,7 +578,7 @@ nav{
 #work{
    display: flex;
    flex-direction: column;
-   justify-content: space-between
+   justify-content: space-between;
 }
 .work{
    &__cont{
@@ -569,8 +587,7 @@ nav{
       justify-content: space-between;
       row-gap: 30px;
       column-gap: 5px;
-      margin: 0 100px;
-      margin-bottom: 100px;
+      margin: 0 75px;
       @media screen and (max-width: $media-query){
          justify-content: center;
          margin: 0;
@@ -580,7 +597,7 @@ nav{
       width: 30%;
       &:hover{
          .work__card-img img{
-            transform: scale(1.7);
+            transform: scale(1.4);
          }
          .work__card-img::after{
             opacity: 1;
@@ -594,7 +611,7 @@ nav{
       }
       &-img{
          width: 100%;
-         height: 20vh;
+         height: 25vh;
          overflow: hidden;
          img{
             width: 100%;
@@ -606,7 +623,7 @@ nav{
             text-transform: uppercase;
             position: relative;
             z-index: 99;
-            font-size: 25px;
+            font-size: 22.5px;
             font-weight: bold;
 
             -webkit-text-stroke: 1px $color-tertiary;
@@ -632,9 +649,10 @@ nav{
       }
 
       &-txt{
-         padding: 10px 0;
+         padding: 7.5px 0;
          display: flex;
          justify-content: space-between;
+         align-items: center;
          h3{
             font-size: $font-size-text;
             color: $color-primary;
@@ -676,7 +694,7 @@ nav{
 .form{
    display: flex;
    justify-content: center;
-   height: 60vh;
+   height: 100vh;
    
    &__cont{
       display: flex;
@@ -703,7 +721,7 @@ form{
    justify-content: center;
    row-gap: 50px;
    min-height: 50vh;
-   max-width: 900px;
+   max-width: 800px;
    width: 75%;
    @media screen and (max-width: $media-query){
       justify-content: flex-start;
@@ -764,7 +782,7 @@ form{
       height: 40vh;
    }
    &__cont-txt{
-      color: $color-primary;
+      color: $color-secondary;
       display: inline-block;
       flex-direction: column;
       width: 70%;
@@ -776,9 +794,6 @@ form{
          p{
             margin: 10px 0;
          }
-      }
-      a{
-         color: #4a4a4ab7;
       }
    }
    &__cont-cta{
