@@ -7,8 +7,8 @@
 <div align="center">
   <h3>
     <span> | </span>
-    <a href="https://mathyscogne.github.io/thirtytwo-portfolio/">
-      Solution // IN BUILD
+    <a href="https://www.thirtytwo-agency.fr/">
+      Solution
     </a>
     <span> | </span>
   </h3>
