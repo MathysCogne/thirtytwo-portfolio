@@ -5,10 +5,10 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 // // Variables // /
 // // // // // // //
 $container-width-desktop: 85%;
-$container-width-mobile: 95%;
+$container-width-mobile: 90%;
 $container-large-desktop: 80%;
 
-$section-min-height: 110vh;
+$section-min-height: 100vh;
 
 
 $color-primary: #FFFFFF;
@@ -21,10 +21,10 @@ $background-secondary: #1E1E1E;
 $font-family-primary: 'canada-type-gibson', sans-serif;
 $font-size-title: 7vw;
 $font-size-subtitle: 4.5vw;
-$font-size-text: 18px;
+$font-size-text: 20px;
 $font-size-title_mobile: 10vw;
 $font-size-subtitle_mobile: 8vw;
-$font-size-text_mobile: 20px;
+$font-size-text_mobile: 18px;
 
 $transition-primary: all 0.3s ease-in-out;
 $transition-secondary: all 0.2s ease-in-out;
@@ -210,12 +210,12 @@ body.loading { //Bloque le scrool, classe ajoutée par le loader.js
          position: absolute;
          color: transparent;
          position: absolute;
-         -webkit-text-stroke: 0.75px $color-primary;
-         text-stroke: 0.75px $color-primary;
+         -webkit-text-stroke: 1px $color-primary;
+         text-stroke: 1px $color-primary;
          width: min-content;
          margin-top: 120px;
          right: 0;
-         opacity: 0.75;
+         opacity: 0.85;
          line-height: 0.9;
          @media screen and (max-width: $media-query){
             display: none;
@@ -287,6 +287,9 @@ header{
    width: $container-width-desktop;
    @media screen and (max-width: $media-query){
       width: $container-width-mobile;
+      svg{
+         margin: 7.5px;
+      }
    }
 
    height: 20vh;
@@ -324,10 +327,8 @@ nav{
    width: $container-width-desktop;
    @media screen and (max-width: $media-query){
       width: $container-width-mobile;
-      text-align: center;
       display: flex;
       flex-direction: column;
-      row-gap: 20px;
    }
 
    height: 80vh;
@@ -341,22 +342,18 @@ nav{
       letter-spacing: 2px;
       @media screen and (max-width: $media-query){
          font-size: $font-size-title-mobile;
-         margin: 5vh 0;
+         margin: 7.5vh 0 5vh 0;
       }
    }
    p{
       width: 60%;
       font-size: $font-size-text;
-      padding: 0 0 10px 0;
+      color: $color-secondary;
+      padding: 0 0 10px 5px;
       @media screen and (max-width: $media-query){
          
          width: 100%;
          font-size: $font-size-text-mobile;
-      }
-   }
-   article {
-      @media screen and (max-width: $media-query){
-         margin: 10vh 0;
       }
    }
 }
@@ -376,7 +373,7 @@ nav{
       }
       span{
          font-size: 40px;
-         color: $color-primary;
+         color: $color-secondary;
       }
    }
    &-menu {
@@ -466,10 +463,11 @@ nav{
       font-weight: bold;
       text-transform: uppercase;
       text-align: center;
-      padding: 60px 0;
+      padding: 12.5vh 0;
       color: $color-primary;
       @media screen and (max-width: $media-query){
          font-size: $font-size-subtitle-mobile;
+         padding: 8vh 0;
       }
       span{
          font-size: ($font-size-subtitle + 0.75vw);
@@ -531,12 +529,11 @@ nav{
    align-items: center;
    width: 95%;
    margin: auto;
-   min-height: 60vh;
    justify-content: space-around;
    column-gap: 5%;
    @media screen and (max-width: $media-query){
       flex-direction: column-reverse;
-      margin: 10vh 0;
+      margin: 0 0 7vh 0;
       row-gap: 40px;
    }
    &-txt{
@@ -548,6 +545,7 @@ nav{
       font-size: $font-size-text;
       @media screen and (max-width: $media-query){
          width: auto;
+         font-size: $font-size-text_mobile;
       }
    }
    &-img{
@@ -594,7 +592,7 @@ nav{
       }
    }
    &__card{
-      width: 30%;
+      width: 26.5%;
       &:hover{
          .work__card-img img{
             transform: scale(1.4);
@@ -613,17 +611,24 @@ nav{
          width: 100%;
          height: 25vh;
          overflow: hidden;
+         border: 0.1px solid $color-primary;
          img{
+            object-fit: fill; 
             width: 100%;
             height: 100%;
             transition: $transition-secondary;
+
          }
          &::after{
             content: "En savoir plus";
             text-transform: uppercase;
             position: relative;
             z-index: 99;
-            font-size: 22.5px;
+            font-size: 1.7vw;
+            @media screen and (max-width: $media-query){
+               font-size: 4vw;
+            }
+            
             font-weight: bold;
 
             -webkit-text-stroke: 1px $color-tertiary;
@@ -649,16 +654,22 @@ nav{
       }
 
       &-txt{
-         padding: 7.5px 0;
+         padding: 12.5px 0;
          display: flex;
          justify-content: space-between;
          align-items: center;
          h3{
-            font-size: $font-size-text;
+            font-size: 24px;
             color: $color-primary;
+            @media screen and (max-width: $media-query){
+               font-size: $font-size-text_mobile;
+            }
          }
          span{
             transform: rotate(-45deg);
+            @media screen and (max-width: $media-query){
+               font-size: ($font-size-text_mobile + 6px);
+            }
             color: $color-tertiary;
             transition: $transition-secondary;
             @media screen and (max-width: $media-query){
@@ -672,6 +683,7 @@ nav{
 // //   contact   //
 // // // // // // //
 #contact{
+   height: 80vh !important;
    @media screen and (max-width: $media-query){
       min-height: 80vh !important;
    }
@@ -694,7 +706,7 @@ nav{
 .form{
    display: flex;
    justify-content: center;
-   height: 100vh;
+   height: 70vh;
    
    &__cont{
       display: flex;
@@ -720,7 +732,6 @@ form{
    flex-direction: column;
    justify-content: center;
    row-gap: 50px;
-   min-height: 50vh;
    max-width: 800px;
    width: 75%;
    @media screen and (max-width: $media-query){
@@ -751,6 +762,9 @@ form{
    }
    .label-textarea{
       margin: 30px 0 38.5px 0;
+      @media screen and (max-width: $media-query) {
+         margin: 30px 0 15px 0;
+      }
    }
    textarea, input[type="submit"]{
       border: 1px solid $color-secondary;
@@ -780,6 +794,7 @@ form{
    @media screen and (max-width: $media-query){
       flex-direction: column-reverse;
       height: 40vh;
+      margin-top: 20vh;
    }
    &__cont-txt{
       color: $color-secondary;

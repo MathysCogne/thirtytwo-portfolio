@@ -148,7 +148,7 @@ body.loading {
   z-index: -99;
   left: 0;
   width: 100vw;
-  height: 110vh;
+  height: 100vh;
 }
 .background::after {
   content: "";
@@ -194,13 +194,13 @@ body.loading {
   position: absolute;
   color: transparent;
   position: absolute;
-  -webkit-text-stroke: 0.75px #FFFFFF;
-  text-stroke: 0.75px #FFFFFF;
+  -webkit-text-stroke: 1px #FFFFFF;
+  text-stroke: 1px #FFFFFF;
   width: -moz-min-content;
   width: min-content;
   margin-top: 120px;
   right: 0;
-  opacity: 0.75;
+  opacity: 0.85;
   line-height: 0.9;
 }
 @media screen and (max-width: 750px) {
@@ -273,7 +273,10 @@ header {
 }
 @media screen and (max-width: 750px) {
   header {
-    width: 95%;
+    width: 90%;
+  }
+  header svg {
+    margin: 7.5px;
   }
 }
 header h1 span {
@@ -292,7 +295,7 @@ nav ul {
   }
 }
 nav ul li {
-  font-size: 18px;
+  font-size: 20px;
   color: #000000;
   transition: all 0.2s ease-in-out;
 }
@@ -308,11 +311,9 @@ nav ul li:hover {
 }
 @media screen and (max-width: 750px) {
   #hero {
-    width: 95%;
-    text-align: center;
+    width: 90%;
     display: flex;
     flex-direction: column;
-    row-gap: 20px;
   }
 }
 #hero h1 {
@@ -325,23 +326,19 @@ nav ul li:hover {
 @media screen and (max-width: 750px) {
   #hero h1 {
     font-size: 10vw;
-    margin: 5vh 0;
+    margin: 7.5vh 0 5vh 0;
   }
 }
 #hero p {
   width: 60%;
-  font-size: 18px;
-  padding: 0 0 10px 0;
+  font-size: 20px;
+  color: #000000;
+  padding: 0 0 10px 5px;
 }
 @media screen and (max-width: 750px) {
   #hero p {
     width: 100%;
-    font-size: 20px;
-  }
-}
-@media screen and (max-width: 750px) {
-  #hero article {
-    margin: 10vh 0;
+    font-size: 18px;
   }
 }
 
@@ -362,7 +359,7 @@ nav ul li:hover {
 }
 #burger-button span {
   font-size: 40px;
-  color: #FFFFFF;
+  color: #000000;
 }
 #burger-menu {
   display: none;
@@ -449,12 +446,13 @@ nav ul li:hover {
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
-  padding: 60px 0;
+  padding: 12.5vh 0;
   color: #FFFFFF;
 }
 @media screen and (max-width: 750px) {
   .section__title {
     font-size: 8vw;
+    padding: 8vh 0;
   }
 }
 .section__title span {
@@ -478,12 +476,12 @@ nav ul li:hover {
 .section__cont {
   margin: auto;
   width: 85%;
-  height: 110vh;
+  height: 100vh;
   min-height: 300px;
 }
 @media screen and (max-width: 750px) {
   .section__cont {
-    width: 95%;
+    width: 90%;
     height: auto;
   }
 }
@@ -518,7 +516,6 @@ nav ul li:hover {
   align-items: center;
   width: 95%;
   margin: auto;
-  min-height: 60vh;
   justify-content: space-around;
   -moz-column-gap: 5%;
        column-gap: 5%;
@@ -526,7 +523,7 @@ nav ul li:hover {
 @media screen and (max-width: 750px) {
   .about__cont {
     flex-direction: column-reverse;
-    margin: 10vh 0;
+    margin: 0 0 7vh 0;
     row-gap: 40px;
   }
 }
@@ -536,11 +533,12 @@ nav ul li:hover {
   row-gap: 20px;
   width: 45%;
   color: #FFFFFF;
-  font-size: 18px;
+  font-size: 20px;
 }
 @media screen and (max-width: 750px) {
   .about__cont-txt {
     width: auto;
+    font-size: 18px;
   }
 }
 .about__cont-img {
@@ -589,7 +587,7 @@ nav ul li:hover {
   }
 }
 .work__card {
-  width: 30%;
+  width: 26.5%;
 }
 .work__card:hover .work__card-img img {
   transform: scale(1.4);
@@ -609,8 +607,11 @@ nav ul li:hover {
   width: 100%;
   height: 25vh;
   overflow: hidden;
+  border: 0.1px solid #FFFFFF;
 }
 .work__card-img img {
+  -o-object-fit: fill;
+     object-fit: fill;
   width: 100%;
   height: 100%;
   transition: all 0.2s ease-in-out;
@@ -620,7 +621,7 @@ nav ul li:hover {
   text-transform: uppercase;
   position: relative;
   z-index: 99;
-  font-size: 22.5px;
+  font-size: 1.7vw;
   font-weight: bold;
   -webkit-text-stroke: 1px #FDC935;
   text-stroke: 1px #FDC935;
@@ -638,15 +639,25 @@ nav ul li:hover {
   color: transparent;
   transition: all 0.2s ease-in-out;
 }
+@media screen and (max-width: 750px) {
+  .work__card-img::after {
+    font-size: 4vw;
+  }
+}
 .work__card-txt {
-  padding: 7.5px 0;
+  padding: 12.5px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .work__card-txt h3 {
-  font-size: 18px;
+  font-size: 24px;
   color: #FFFFFF;
+}
+@media screen and (max-width: 750px) {
+  .work__card-txt h3 {
+    font-size: 18px;
+  }
 }
 .work__card-txt span {
   transform: rotate(-45deg);
@@ -655,10 +666,18 @@ nav ul li:hover {
 }
 @media screen and (max-width: 750px) {
   .work__card-txt span {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .work__card-txt span {
     transform: rotate(0deg);
   }
 }
 
+#contact {
+  height: 80vh !important;
+}
 @media screen and (max-width: 750px) {
   #contact {
     min-height: 80vh !important;
@@ -682,7 +701,7 @@ nav ul li:hover {
 .form {
   display: flex;
   justify-content: center;
-  height: 100vh;
+  height: 70vh;
 }
 .form__cont {
   display: flex;
@@ -712,7 +731,6 @@ form {
   flex-direction: column;
   justify-content: center;
   row-gap: 50px;
-  min-height: 50vh;
   max-width: 800px;
   width: 75%;
 }
@@ -724,7 +742,7 @@ form {
 }
 form input, form textarea, form label {
   color: #000000;
-  font-size: 18px;
+  font-size: 20px;
   font-family: "canada-type-gibson", sans-serif;
   background-color: transparent;
   border: none;
@@ -746,6 +764,11 @@ form label {
 }
 form .label-textarea {
   margin: 30px 0 38.5px 0;
+}
+@media screen and (max-width: 750px) {
+  form .label-textarea {
+    margin: 30px 0 15px 0;
+  }
 }
 form textarea, form input[type=submit] {
   border: 1px solid #000000;
@@ -774,6 +797,7 @@ form input[type=submit]:hover {
   .footer {
     flex-direction: column-reverse;
     height: 40vh;
+    margin-top: 20vh;
   }
 }
 .footer__cont-txt {
